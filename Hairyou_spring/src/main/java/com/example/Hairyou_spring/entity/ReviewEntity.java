@@ -1,5 +1,6 @@
 package com.example.Hairyou_spring.entity;
 
+import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

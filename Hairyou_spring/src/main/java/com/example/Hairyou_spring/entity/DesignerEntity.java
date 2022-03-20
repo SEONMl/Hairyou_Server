@@ -1,5 +1,6 @@
 package com.example.Hairyou_spring.entity;
 
+import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ public class DesignerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long identification;
 
+    @NotNull
     @Column( unique = true)
     private String id;
 

@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShopDto {
+    private Long id;
     private String shopName;
     private String info;
     private String treatment;

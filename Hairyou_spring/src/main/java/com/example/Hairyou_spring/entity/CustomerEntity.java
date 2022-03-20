@@ -1,6 +1,7 @@
 package com.example.Hairyou_spring.entity;
 
 import com.example.Hairyou_spring.dto.CustomerDto;
+import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class CustomerEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long identification;
 
+    @NotNull
     @Column(name ="c_id", unique = true)
     private String id;
 
