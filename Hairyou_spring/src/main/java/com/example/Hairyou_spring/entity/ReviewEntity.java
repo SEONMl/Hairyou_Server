@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -18,17 +19,22 @@ public class ReviewEntity {
     private Long idx;
 
     @ManyToOne
-    @JoinColumn(name = "shop_name")
-    private ShopEntity shopName;
+    @JoinColumn(name = "shop_id")
+    private ShopEntity shopId;
 
-    @Column(name = "writed_at")
-    private String writedAt;
+    @ManyToOne
+    @JoinColumn(name = "c_id")
+    private CustomerEntity customerId;
+
+    @Column(name = "written_at", updatable = false)
+    private String writtenAt;
     private String content;
 
     @Builder
-    public ReviewEntity(ShopEntity shop_name, String writed_at, String content) {
-        this.shopName = shop_name;
-        this.writedAt = writed_at;
+    public ReviewEntity(ShopEntity shopId, CustomerEntity customerId, String writtenAt, String content) {
+        this.customerId = customerId;
+        this.shopId = shopId;
+        this.writtenAt = writtenAt;
         this.content = content;
     }
 }

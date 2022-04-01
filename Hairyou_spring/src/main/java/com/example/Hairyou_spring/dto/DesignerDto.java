@@ -19,5 +19,6 @@ public class DesignerDto {
     private String phone;
     private String gender;
 
+    private Long shopId;
     private String shopName;
 }

@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ShopController {
@@ -17,21 +16,25 @@ public class ShopController {
     @Autowired
     private ShopService shopService;
 
+
     // 미용실 조회
-    @GetMapping("/shop")
+    @GetMapping("/shop") // 200
     public List<ShopEntity> findAllShop() {
         return shopService.findAllShop();
     }
 
-    @GetMapping("/shop/{shop_name}")
+    @GetMapping("/shop/{shop_name}")  // 200
     public ShopEntity findShopByName(@PathVariable String shop_name){
         return shopService.findByName(shop_name);
     }
 
+
     // 미용실 저장
-    @PostMapping("/shop")
+    @PostMapping("/shop") // 200
     public ResponseEntity<ShopEntity> saveShop(@RequestBody ShopDto dto){
         ShopEntity saved = shopService.saveShop(dto);
         return ResponseEntity.status(HttpStatus.OK).body(saved);
     }
+
+
 }

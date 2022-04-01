@@ -13,9 +13,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewDto {
-    private Long index;
+    private Long idx;
+    private Long shopId;
     private String shopName;
+    private Long customerIdentification; // identification
+    private String customerId; // id
 
-    private String writedAt;
+    private String writtenAt;
     private String content;
 }

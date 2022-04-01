@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor
-@Table(name="customer")
+@Table(name = "customer")
 public class CustomerEntity {
 
     @Id
@@ -19,9 +19,9 @@ public class CustomerEntity {
     private Long identification;
 
     @NotNull
-    @Column(name ="c_id", unique = true)
+    @Column(name = "c_id", unique = true)
     private String id;
-
+    @NotNull
     private String password;
     private String name;
     private String phone;
@@ -36,20 +36,24 @@ public class CustomerEntity {
         this.gender = gender;
     }
 
-    public void patch(CustomerDto dto){
-        if(this.identification != dto.getIdentification())
+    public String getInfo() {
+        return this.name + "님(" +this.identification+"번 / " +this.id + ")";
+    }
+
+    public void patch(CustomerDto dto) {
+        if (this.identification != dto.getIdentification())
             throw new IllegalArgumentException("댓글 수정 실패! 잘못된 id가 있습니다");
 
-        if(dto.getId() != null)
-            this.id=dto.getId();
-        if(dto.getPassword() != null)
-            this.password=dto.getPassword();
-        if(dto.getName() != null)
-            this.name=dto.getName();
-        if(dto.getPhone() != null)
-            this.phone=dto.getPhone();
-        if(dto.getGender() != null)
-            this.gender=dto.getGender();
+        if (dto.getId() != null)
+            this.id = dto.getId();
+        if (dto.getPassword() != null)
+            this.password = dto.getPassword();
+        if (dto.getName() != null)
+            this.name = dto.getName();
+        if (dto.getPhone() != null)
+            this.phone = dto.getPhone();
+        if (dto.getGender() != null)
+            this.gender = dto.getGender();
     }
 }
 

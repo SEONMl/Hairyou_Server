@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
-    @Query(value = "select * from customer where name=: name", nativeQuery = true)
+    @Query(value = "select * from customer where name= :name", nativeQuery = true)
     CustomerEntity findByName(String name);
 
-
+    @Query(value = "select * from customer where c_id= :cId", nativeQuery = true)
+    CustomerEntity findByCId(String cId);
 }

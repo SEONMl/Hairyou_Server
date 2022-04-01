@@ -13,10 +13,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReservationDto {
-    private Long index;
-    private Long cId;
+    private Long idx;
+
+    private Long customerIdentification; // identification
+    private String customerId; // id
+    private Long shopId;
     private String shopName;
-    private Date reservedAt;
+    private String reservedAt;
     private String curCondition;
     private String detail;
 }

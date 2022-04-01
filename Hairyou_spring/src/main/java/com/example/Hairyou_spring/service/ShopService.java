@@ -19,6 +19,7 @@ public class ShopService {
     @Autowired
     private DesignerRepository designerRepository;
 
+
     public List<ShopEntity> findAllShop() {
         List<ShopEntity> targets = shopRepository.findAll();
         return targets;
@@ -30,8 +31,11 @@ public class ShopService {
         ShopEntity created = ShopEntity.builder()
                 .shopName(dto.getShopName())
                 .info(dto.getInfo())
-                .treatment(dto.getTreatment())
+                .address(dto.getAddress())
                 .build();
+
+        // 입력받은 address를 latitude, longitude로 변환 해서 DB에 저장하기
+        // 주소
 
         ShopEntity saved = shopRepository.save(created);
 

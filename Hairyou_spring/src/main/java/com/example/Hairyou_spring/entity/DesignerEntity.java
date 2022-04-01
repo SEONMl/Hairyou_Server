@@ -17,25 +17,29 @@ public class DesignerEntity {
     private Long identification;
 
     @NotNull
-    @Column( unique = true)
+    @Column(name = "d_id", unique = true)
     private String id;
-
+    @NotNull
     private String password;
     private String name;
     private String phone;
     private String gender;
 
     @OneToOne
-    @JoinColumn(name="shop_name")
-    private ShopEntity shopName;
+    @JoinColumn(name="shop_id")
+    private ShopEntity shopId;
 
     @Builder
-    public DesignerEntity(String id, String password, String name, String phone, String gender, ShopEntity shop_name) {
+    public DesignerEntity(String id, String password, String name, String phone, String gender, ShopEntity shopId) {
         this.id = id;
         this.password = password;
         this.name = name;
         this.phone = phone;
         this.gender = gender;
-        this.shopName = shop_name;
+        this.shopId = shopId;
+    }
+
+    public String getInfo() {
+        return this.name + "님(" +this.identification+"번 / " +this.id + ")";
     }
 }
