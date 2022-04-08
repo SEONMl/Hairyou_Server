@@ -26,15 +26,27 @@ public class ReservationController {
         return reservationService.findAllReser();
     }
 
+    // 고객 identification으로 예약 조회
+    @GetMapping("/account/{identification}/reservations") // test
+    public List<ReservationEntity> findById(@PathVariable Long identification){
+        return reservationService.findById(identification);
+    }
+
+    // 미용실 id로 예약 조회
+    @GetMapping("/shop/{id}/reservations" ) // test
+    public List<ReservationEntity> findByShopId(@PathVariable Long id){
+        return reservationService.findByShopId(id);
+    }
+
     // 고객 아이디로 예약 조회
-    @GetMapping("/account/{id}/reservations") // 200
+    @GetMapping("/account/id/{id}/reservations") // 200
     public List<ReservationEntity> findByCId(@PathVariable String id) {
         // 고객 id로 예약 조회 (id -> 고객 identification -> c_id 칼럼 조회)
         return reservationService.findByCustomerId(id);
     }
 
     // 미용실 이름으로 예약 조회
-    @GetMapping("/shop/{shop_name}/reservations") // 200
+    @GetMapping("/shop/name/{shop_name}/reservations") // 200
     public List<ReservationEntity> findByShopName(@PathVariable String shop_name){
         //shop name으로 요청 -> 샵 기본키 조회-> findById
         return reservationService.findByShopName(shop_name);

@@ -23,7 +23,7 @@ public class ShopController {
         return shopService.findAllShop();
     }
 
-    @GetMapping("/shop/{shop_name}")  // 200
+    @GetMapping("/shop/name/{shop_name}")  // 200
     public ShopEntity findShopByName(@PathVariable String shop_name){
         return shopService.findByName(shop_name);
     }

@@ -23,14 +23,16 @@ public class ReviewController {
         return reviewService.findAllReviews();
     }
 
+
+
     // 고객 아이디로 리뷰 조회
-    @GetMapping("/account/{c_id}/reviews") // 500
+    @GetMapping("/account/id/{c_id}/reviews") // 500
     public List<ReviewEntity> findAllByCId(@PathVariable String c_id){
         return reviewService.findAllReviewsByCId(c_id);
     }
 
     // 미용실 이름으로 리뷰 조회
-    @GetMapping("/shop/{shop_name}/reviews") // test
+    @GetMapping("/shop/name/{shop_name}/reviews") // test
     public List<ReviewEntity> findAllByShopName(@PathVariable String shop_name){
         return reviewService.findAllReviewsByShopName(shop_name);
     }
@@ -50,7 +52,7 @@ public class ReviewController {
         return ResponseEntity.status(HttpStatus.OK).body(deleted);
     }
 
-    @DeleteMapping("/account/{c_id}/review/{idx}") // test
+    @DeleteMapping("/account/id/{c_id}/review/{idx}") // test
     public ResponseEntity<ReviewEntity> deleteByCIdAndIndex(
             @PathVariable String c_id,
             @PathVariable Long idx

@@ -36,7 +36,6 @@ public class ReviewService {
                 .content(dto.getContent())
                 .customerId(targetCustomer)
                 .shopId(targetShop)
-                .writtenAt(dto.getWrittenAt())
                 .build();
 
         ReviewEntity result = reviewRepository.save(created);

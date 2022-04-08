@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -26,18 +27,22 @@ public class ReservationEntity {
     @JoinColumn(name="shop_id")
     private ShopEntity shopId;
 
-    @Column(name="reserved_at", updatable = false)
-    private String reservedAt;
+    @Column(name="reserved_at")
+    private LocalDateTime reservedAt; // 실제 방문할 일시
+    @Column(name="created_at", updatable =false)
+    private LocalDateTime createdAt;  // 예약 당시 일시
+
 
     @Column(name = "cur_condition")
     private String curCondition;
     private String detail;
 
     @Builder
-    public ReservationEntity(CustomerEntity customerId, ShopEntity shopId, String reservedAt, String curCondition, String detail) {
+    public ReservationEntity(CustomerEntity customerId, ShopEntity shopId, LocalDateTime reservedAt, String curCondition, String detail) {
         this.customerId = customerId;
         this.shopId = shopId;
         this.reservedAt = reservedAt;
+        this.createdAt = LocalDateTime.now();
         this.curCondition = curCondition;
         this.detail = detail;
     }

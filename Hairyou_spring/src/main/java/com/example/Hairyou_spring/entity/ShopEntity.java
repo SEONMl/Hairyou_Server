@@ -32,6 +32,7 @@ public class ShopEntity {
     private double latitude; // 위도
     private double longitude; // 경도
 
+
     @Builder
     public ShopEntity(String shopName, String info, String address, double latitude, double longitude) {
         this.shopName = shopName;

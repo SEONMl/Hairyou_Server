@@ -8,6 +8,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Getter
@@ -27,14 +29,14 @@ public class ReviewEntity {
     private CustomerEntity customerId;
 
     @Column(name = "written_at", updatable = false)
-    private String writtenAt;
+    private LocalDateTime writtenAt;
     private String content;
 
     @Builder
-    public ReviewEntity(ShopEntity shopId, CustomerEntity customerId, String writtenAt, String content) {
+    public ReviewEntity(ShopEntity shopId, CustomerEntity customerId, String content) {
         this.customerId = customerId;
         this.shopId = shopId;
-        this.writtenAt = writtenAt;
+        this.writtenAt = LocalDateTime.now();
         this.content = content;
     }
 }

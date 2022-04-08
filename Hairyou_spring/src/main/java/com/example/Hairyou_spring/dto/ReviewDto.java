@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -19,6 +20,6 @@ public class ReviewDto {
     private Long customerIdentification; // identification
     private String customerId; // id
 
-    private String writtenAt;
+    private LocalDateTime writtenAt;
     private String content;
 }

@@ -32,6 +32,8 @@ public class ShopService {
                 .shopName(dto.getShopName())
                 .info(dto.getInfo())
                 .address(dto.getAddress())
+                .longitude(dto.getLongitude())
+                .latitude(dto.getLatitude())
                 .build();
 
         // 입력받은 address를 latitude, longitude로 변환 해서 DB에 저장하기

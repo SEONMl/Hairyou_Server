@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -19,7 +20,8 @@ public class ReservationDto {
     private String customerId; // id
     private Long shopId;
     private String shopName;
-    private String reservedAt;
+    private LocalDateTime reservedAt; // 방문할 일시
+    private LocalDateTime createdAt;  // 예약 당시 일시
     private String curCondition;
     private String detail;
 }

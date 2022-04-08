@@ -65,7 +65,7 @@ public class ReservationService {
 
         Long targetId = customerEntity.getIdentification();
 
-        return reservationRepository.findByCustomerId(targetId);
+        return reservationRepository.findByCustomerIdentification(targetId);
     }
 
     public void deleteById(Long idx) {
@@ -78,5 +78,13 @@ public class ReservationService {
         }
 
         reservationRepository.deleteById(idx);
+    }
+
+    public List<ReservationEntity> findById(Long identification) {
+        return reservationRepository.findByCustomerIdentification(identification);
+    }
+
+    public List<ReservationEntity> findByShopId(Long id) {
+        return reservationRepository.findByShopId(id);
     }
 }

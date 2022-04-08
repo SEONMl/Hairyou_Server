@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ReservationRepository extends JpaRepository<ReservationEntity, Long> {
 
@@ -15,6 +14,6 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
 
     // 외래키 customer_id로 조회
     @Query(value = "select * from reservation where c_id=:cId", nativeQuery = true)
-    List<ReservationEntity> findByCustomerId(Long cId);
+    List<ReservationEntity> findByCustomerIdentification(Long cId);
 
 }
