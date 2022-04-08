@@ -18,7 +18,7 @@ public class ShopController {
 
 
     // 미용실 조회
-    @GetMapping("/shop") // 200
+    @GetMapping("/shops") // 200
     public List<ShopEntity> findAllShop() {
         return shopService.findAllShop();
     }
